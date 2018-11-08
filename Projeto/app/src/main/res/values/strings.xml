@@ -3,4 +3,6 @@
     <string name="nome">Nome</string>
     <string name="horario">Horário</string>
     <string name="descricao">Descrição</string>
+    <string name="tvAtividade">Atividade</string>
+    <string name="tvPesquisar">Pesquisar</string>
 </resources>
