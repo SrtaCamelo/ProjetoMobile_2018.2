@@ -8,7 +8,7 @@ import android.widget.Button
 import android.widget.TextView
 import kotlinx.android.synthetic.main.atividades_tela.*
 
-class atActivity : AppCompatActivity(){
+class AtividadeActivity : AppCompatActivity(){
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
