@@ -5,4 +5,7 @@
     <string name="descricao">Description</string>
     <string name="tvAtividade">Activity</string>
     <string name="tvPesquisar">Search</string>
+    <string name="btAluno">Student</string>
+    <string name="btAdm">Manager</string>
+    <string name="descriptionImage">UFRPE logo</string>
 </resources>

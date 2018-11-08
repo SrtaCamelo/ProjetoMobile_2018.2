@@ -4,6 +4,7 @@ import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
+import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
 
@@ -11,11 +12,10 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val button = findViewById(R.id.button) as Button
-        button.setOnClickListener{
-            val intent = Intent(this, AtividadeActivity::class.java)
+        btAluno.setOnClickListener {
+            val intent = Intent(this, ListarAtividadeActivity::class.java)
+            // val intent = Intent(this, AtividadeActivity::class.java)
             startActivity(intent)
         }
-
     }
 }
