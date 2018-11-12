@@ -3,4 +3,8 @@
     <string name="nome">Name</string>
     <string name="horario">Schedule</string>
     <string name="descricao">Description</string>
+    <string name="titulo">Title</string>
+    <string name="local">Place</string>
+    <string name="cadastrar">Register</string>
+    <string name="registro_sucesso">The activity has been successfully registered!</string>
 </resources>

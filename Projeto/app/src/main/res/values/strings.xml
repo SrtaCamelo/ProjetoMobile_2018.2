@@ -3,4 +3,8 @@
     <string name="nome">Nome</string>
     <string name="horario">Horário</string>
     <string name="descricao">Descrição</string>
+    <string name="titulo">Título</string>
+    <string name="local">Local</string>
+    <string name="cadastrar">Cadastrar</string>
+    <string name="registro_sucesso">Atividade cadastrada com sucesso!</string>
 </resources>
