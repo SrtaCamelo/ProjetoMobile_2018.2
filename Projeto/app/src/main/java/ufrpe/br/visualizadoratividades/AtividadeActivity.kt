@@ -14,6 +14,5 @@ class AtividadeActivity : AppCompatActivity(){
         super.onCreate(savedInstanceState)
         setContentView(R.layout.atividades_tela)
 
-
     }
 }

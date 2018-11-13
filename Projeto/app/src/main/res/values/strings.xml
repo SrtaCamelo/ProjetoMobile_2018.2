@@ -7,4 +7,9 @@
     <string name="local">Local</string>
     <string name="cadastrar">Cadastrar</string>
     <string name="registro_sucesso">Atividade cadastrada com sucesso!</string>
+    <string name="tvAtividade">Atividade</string>
+    <string name="tvPesquisar">Pesquisar</string>
+    <string name="btAdm">Administrador</string>
+    <string name="btAluno">Aluno</string>
+    <string name="descriptionImage">Logo da UFRPE</string>
 </resources>
