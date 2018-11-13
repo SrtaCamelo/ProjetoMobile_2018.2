@@ -9,16 +9,20 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity"/>
-        <activity android:name=".ListarAtividadeActivity">
-        <intent-filter>
-            <action android:name="android.intent.action.MAIN" />
+        <activity android:name=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
-            <category android:name="android.intent.category.LAUNCHER" />
-        </intent-filter>
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
         <activity android:name=".ListarAtividadeActivity" />
-        <activity android:name=".CadastrarAtividadeActivity"></activity>
+        <activity android:name=".CadastrarAtividadeActivity" />
+        <activity android:name=".AtividadeActivity" />
+        <activity
+            android:name=".ListarAtividadeNavigationDrawer"
+            android:label="@string/title_activity_listar_atividade_navigation_drawer"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>

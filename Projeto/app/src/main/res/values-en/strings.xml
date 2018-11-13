@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Visualizador de Atividades UFRPE</string>
+    <string name="app_name">O que rola na UFRPE?</string>
     <string name="nome">Name</string>
     <string name="horario">Schedule</string>
     <string name="descricao">Description</string>
@@ -12,4 +12,6 @@
     <string name="local">Place</string>
     <string name="cadastrar">Register</string>
     <string name="registro_sucesso">The activity has been successfully registered!</string>
+    <string name="nav_home">Página principal</string>
+    <string name="nav_new_atividade">Cadastrar Atividade</string>
 </resources>

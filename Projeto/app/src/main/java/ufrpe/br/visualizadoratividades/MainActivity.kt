@@ -14,7 +14,6 @@ class MainActivity : AppCompatActivity() {
 
         btAluno.setOnClickListener {
             val intent = Intent(this, ListarAtividadeActivity::class.java)
-            // val intent = Intent(this, AtividadeActivity::class.java)
             startActivity(intent)
         }
     }
