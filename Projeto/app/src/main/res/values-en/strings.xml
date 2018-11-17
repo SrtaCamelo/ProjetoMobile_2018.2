@@ -8,4 +8,5 @@
     <string name="btAluno">Student</string>
     <string name="btAdm">Manager</string>
     <string name="descriptionImage">UFRPE logo</string>
+    <string name="tvFavoritos">Meus Favoritos</string>
 </resources>
