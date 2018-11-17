@@ -30,7 +30,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/marcas_ufrpe" />
+        app:srcCompat="@mipmap/marcas_ufrpe" />
 
     <Button
         android:id="@+id/btAluno"

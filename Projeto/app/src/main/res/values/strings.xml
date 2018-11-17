@@ -9,4 +9,13 @@
     <string name="btAluno">Aluno</string>
     <string name="descriptionImage">Logo da UFRPE</string>
     <string name="tvFavoritos">Meus Favoritos</string>
+    <string name="titulo">Título</string>
+    <string name="local">Local</string>
+    <string name="cadastrar">Cadastrar</string>
+    <string name="registro_sucesso">Atividade cadastrada com sucesso!</string>
+    <string name="cursos">Cursos</string>
+    <string name="outros">Outros</string>
+    <string name="esportes">Esportes</string>
+    <string name="idiomas">Idiomas</string>
+    <string name="todos">Todos</string>
 </resources>
