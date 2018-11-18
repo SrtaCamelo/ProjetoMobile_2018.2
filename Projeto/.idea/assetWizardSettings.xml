@@ -32,8 +32,9 @@
                                   <option name="values">
                                     <map>
                                       <entry key="assetType" value="IMAGE" />
-                                      <entry key="imageAsset" value="C:\Users\ferna\OneDrive\Documentos\UFRPE\Cadeiras\Mobile\marcas_ufrpe.jpg" />
-                                      <entry key="outputName" value="marcas_ufrpe" />
+                                      <entry key="iconShape" value="NONE" />
+                                      <entry key="imageAsset" value="C:\Users\ferna\Downloads\baseline-home-black-24\2x\baseline-person-black-24.png" />
+                                      <entry key="outputName" value="ic_activity" />
                                     </map>
                                   </option>
                                 </PersistentState>

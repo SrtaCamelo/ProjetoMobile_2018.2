@@ -8,7 +8,7 @@
     <string name="btAdm">Administrador</string>
     <string name="btAluno">Aluno</string>
     <string name="descriptionImage">Logo da UFRPE</string>
-    <string name="tvFavoritos">Meus Favoritos</string>
+    <string name="tvFavoritos">Favoritos</string>
     <string name="titulo">Título</string>
     <string name="local">Local</string>
     <string name="cadastrar">Cadastrar</string>
@@ -18,4 +18,8 @@
     <string name="esportes">Esportes</string>
     <string name="idiomas">Idiomas</string>
     <string name="todos">Todos</string>
+    <string name="home">Principal</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

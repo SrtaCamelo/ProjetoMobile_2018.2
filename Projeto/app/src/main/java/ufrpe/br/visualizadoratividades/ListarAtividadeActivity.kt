@@ -4,7 +4,6 @@ import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.design.widget.TabLayout
 import android.support.v4.view.ViewPager
-import android.widget.TableLayout
 import ufrpe.br.visualizadoratividades.fragments.*
 
 class ListarAtividadeActivity : AppCompatActivity() {
@@ -12,11 +11,11 @@ class ListarAtividadeActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_listar_atividade)
 
-        var fragmentCursos = FragmentCursos()
-        var fragmentEsportes = FragmentEsportes()
-        var fragmentIdiomas = FragmentIdiomas()
-        var fragmentOutras = FragmentOutras()
-        var fragmentTodas = FragmentTodasAtividades()
+        var fragmentCursos = CursosFragment()
+        var fragmentEsportes = EsportesFragment()
+        var fragmentIdiomas = IdiomasFragment()
+        var fragmentOutras = OutrasFragment()
+        var fragmentTodas = TodasAtividadesFragment()
         var adapter_var = ViewPagerAdapter(supportFragmentManager)
         var vp_listarAtividade : ViewPager = findViewById(R.id.viewpager_id)
         var tb_listarAtividade : TabLayout = findViewById(R.id.tbAtividadeListar)
