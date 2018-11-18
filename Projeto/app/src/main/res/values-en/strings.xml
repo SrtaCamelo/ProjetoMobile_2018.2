@@ -8,5 +8,15 @@
     <string name="btAluno">Student</string>
     <string name="btAdm">Manager</string>
     <string name="descriptionImage">UFRPE logo</string>
-    <string name="tvFavoritos">Meus Favoritos</string>
+    <string name="tvFavoritos">Favorite</string>
+    <string name="titulo">Title</string>
+    <string name="local">Place</string>
+    <string name="cadastrar">Register</string>
+    <string name="registro_sucesso">The activity has been successfully registered!</string>
+    <string name="todos">All</string>
+    <string name="idiomas">Languages</string>
+    <string name="esportes">Sportes</string>
+    <string name="outros">Others</string>
+    <string name="cursos">Courses</string>
+    <string name="home">Home</string>
 </resources>
