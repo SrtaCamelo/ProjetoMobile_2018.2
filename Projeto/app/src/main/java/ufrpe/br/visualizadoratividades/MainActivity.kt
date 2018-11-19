@@ -16,5 +16,9 @@ class MainActivity : AppCompatActivity() {
             val intent = Intent(this, Main2Activity::class.java)
             startActivity(intent)
         }
+
+        btAdm.setOnClickListener {
+            //TODO Realizar implementação do butão do adm
+        }
     }
 }

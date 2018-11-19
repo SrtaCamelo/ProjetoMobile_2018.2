@@ -6,10 +6,8 @@ import android.support.v4.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.support.v7.app.AppCompatActivity
 import android.support.design.widget.TabLayout
 import android.support.v4.view.ViewPager
-import ufrpe.br.visualizadoratividades.fragments.*
 import ufrpe.br.visualizadoratividades.R
 import ufrpe.br.visualizadoratividades.ViewPagerAdapter
 
@@ -30,11 +28,11 @@ class HomeFragment : Fragment() {
                               savedInstanceState: Bundle?): View? {
         // Inflate the layout for this fragment
         var v : View = inflater.inflate(R.layout.activity_listar_atividade, container, false)
-        var fragmentCursos = FragmentCursos()
-        var fragmentEsportes = FragmentEsportes()
-        var fragmentIdiomas = FragmentIdiomas()
-        var fragmentOutras = FragmentOutras()
-        var fragmentTodas = FragmentTodasAtividades()
+        var fragmentCursos = CursosFragment()
+        var fragmentEsportes = EsportesFragment()
+        var fragmentIdiomas = IdiomasFragment()
+        var fragmentOutras = OutrasFragment()
+        var fragmentTodas = TodasAtividadesFragment()
         var adapter_var = ViewPagerAdapter(childFragmentManager)
         var vp_listarAtividade : ViewPager = v.findViewById(R.id.viewpager_id)
         var tb_listarAtividade : TabLayout = v.findViewById(R.id.tbAtividadeListar)

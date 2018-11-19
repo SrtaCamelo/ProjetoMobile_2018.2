@@ -7,7 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import ufrpe.br.visualizadoratividades.R
 
-class FragmentOutras : Fragment() {
+class OutrasFragment : Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         var view : View = inflater.inflate(R.layout.outras_fragment, container, false)
         return view

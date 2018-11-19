@@ -20,7 +20,6 @@
         <activity android:name=".AtividadeActivity" />
         <activity android:name=".FavoritosActivity" />
         <activity android:name=".Main2Activity"/>
-
     </application>
 
 </manifest>
