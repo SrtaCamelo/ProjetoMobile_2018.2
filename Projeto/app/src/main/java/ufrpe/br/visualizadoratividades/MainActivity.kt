@@ -13,7 +13,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         btAluno.setOnClickListener {
-            val intent = Intent(this, ListarAtividadeActivity::class.java)
+            val intent = Intent(this, Main2Activity::class.java)
             startActivity(intent)
         }
     }
