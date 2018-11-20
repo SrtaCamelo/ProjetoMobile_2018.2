@@ -9,7 +9,7 @@ import ufrpe.br.visualizadoratividades.R
 
 class IdiomasFragment : Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        var view : View = inflater.inflate(R.layout.idiomas_fragment, container, false)
+        var view : View = inflater.inflate(R.layout.fragment_idiomas, container, false)
         return view
     }
 }
