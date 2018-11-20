@@ -20,4 +20,5 @@
     <string name="cursos">Courses</string>
     <string name="home">Home</string>
     <string name="detalhes">Details</string>
+    <string name="favoritar">Favorite</string>
 </resources>
