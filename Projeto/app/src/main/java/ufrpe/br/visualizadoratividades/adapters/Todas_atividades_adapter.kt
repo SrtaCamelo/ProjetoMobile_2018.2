@@ -11,7 +11,7 @@ import ufrpe.br.visualizadoratividades.beans.Atividade
 import ufrpe.br.visualizadoratividades.R
 
 
-class Todas_atividades_adapter (private var activity : Activity,
+class Todas_atividades_adapter (private var activity: Activity? ,
                                 private var items : ArrayList<Atividade>) : BaseAdapter() {
 
     private class ViewHolder(row: View?) {

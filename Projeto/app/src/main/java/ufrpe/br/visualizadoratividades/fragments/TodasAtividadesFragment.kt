@@ -1,25 +1,25 @@
 package ufrpe.br.visualizadoratividades.fragments
 
 import android.os.Bundle
+import android.support.v4.app.Fragment
 import android.support.v4.app.ListFragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ArrayAdapter
 import android.widget.ListView
 import ufrpe.br.visualizadoratividades.R
 import ufrpe.br.visualizadoratividades.adapters.Todas_atividades_adapter
 import ufrpe.br.visualizadoratividades.beans.Atividade
 
-class TodasAtividadesFragment : ListFragment(){
-    var listView : ListView? = null
+class TodasAtividadesFragment : Fragment(){
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        var view : View = inflater.inflate(R.layout.fragment_todas_atividades, container, false)
-        
-        listView = view.findViewById(R.id.listTodas)
-        var adapter = Todas_atividades_adapter(this, generateData())
-        listView?.adapter = adapter
 
+        var view : View = inflater.inflate(R.layout.fragment_todas_atividades, container, false)
+        var listview: ListView = view.findViewById(R.id.listTodas)
+        var adapter = Todas_atividades_adapter(activity, generateData())
+        listview?.adapter = adapter
         return view
     }
 
