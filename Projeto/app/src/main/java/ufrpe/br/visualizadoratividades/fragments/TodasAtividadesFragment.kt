@@ -30,15 +30,12 @@ class TodasAtividadesFragment : Fragment(){
             var atividade1: Atividade = Atividade("Yoga", "Aula de yoga para alunos com experiência " +
                     "ou sem", "12:00", "Predio de Educação Fisica - Sala 05")
             result.add(atividade1)
-
             var atividade2: Atividade = Atividade("Ingles Básico", "Aula de inglês nível básico",
                     "19:00", "CEGOE- Sala 10")
             result.add(atividade2)
-
             var atividade3: Atividade = Atividade("Inglês Avançado", "Aula de inglês para nível avançado",
                     "10:00", "CEGOE - Sala 4")
             result.add(atividade3)
-
             var atividade4: Atividade = Atividade("Judô", "Aula de Judô para todos os níveis.",
                     "18:30", "Predio de Educação Fisica - Sala 03")
             result.add(atividade4)
