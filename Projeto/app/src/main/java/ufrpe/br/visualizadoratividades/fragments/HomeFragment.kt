@@ -1,6 +1,7 @@
 package ufrpe.br.visualizadoratividades.fragments
 
 
+import android.content.Intent
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.view.LayoutInflater
@@ -8,6 +9,8 @@ import android.view.View
 import android.view.ViewGroup
 import android.support.design.widget.TabLayout
 import android.support.v4.view.ViewPager
+import kotlinx.android.synthetic.main.atividade_list_row.*
+import ufrpe.br.visualizadoratividades.AtividadeActivity
 import ufrpe.br.visualizadoratividades.R
 import ufrpe.br.visualizadoratividades.ViewPagerAdapter
 
@@ -49,6 +52,7 @@ class HomeFragment : Fragment() {
 
         return v
     }
+
 
 
 }

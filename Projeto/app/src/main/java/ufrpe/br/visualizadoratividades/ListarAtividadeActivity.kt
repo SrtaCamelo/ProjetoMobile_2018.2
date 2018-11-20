@@ -1,12 +1,19 @@
 package ufrpe.br.visualizadoratividades
 
+import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.design.widget.TabLayout
 import android.support.v4.view.ViewPager
+import android.view.View
+import kotlinx.android.synthetic.main.atividade_list_row.*
 import ufrpe.br.visualizadoratividades.fragments.*
 
-class ListarAtividadeActivity : AppCompatActivity() {
+class ListarAtividadeActivity : AppCompatActivity(), View.OnClickListener {
+    override fun onClick(v: View?) {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_listar_atividade)
@@ -31,4 +38,6 @@ class ListarAtividadeActivity : AppCompatActivity() {
         tb_listarAtividade.setupWithViewPager(vp_listarAtividade)
 
     }
+
+
 }
