@@ -9,8 +9,10 @@
         android:id="@+id/tvTitulo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/btDetalhes"
-        android:layout_marginStart="16dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="14dp"
+        android:layout_marginTop="5dp"
         android:text="@string/titulo" />
 
     <TextView
@@ -18,30 +20,35 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/tvTitulo"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="9dp"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="6dp"
         android:text="@string/horario" />
 
     <Button
         android:id="@+id/btDetalhes"
         style="@style/Widget.MaterialComponents.Button.TextButton"
-        android:layout_width="52dp"
+        android:layout_width="56dp"
         android:layout_height="25dp"
-        android:layout_marginStart="175dp"
+        android:layout_marginStart="138dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
         android:layout_toEndOf="@+id/tvHorario"
         android:text="@string/detalhes"
-        android:textAlignment="center" />
+        android:textAlignment="center"
+        android:textSize="10sp" />
 
     <Button
         android:id="@+id/btFavoritar"
         style="@style/Widget.MaterialComponents.Button.TextButton"
-        android:layout_width="47dp"
+        android:layout_width="65dp"
         android:layout_height="25dp"
         android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
         android:layout_marginStart="11dp"
         android:layout_marginTop="17dp"
+        android:layout_marginEnd="25dp"
         android:layout_toEndOf="@+id/btDetalhes"
-        android:text="@string/favoritar" />
+        android:text="@string/favoritar"
+        android:textSize="10sp" />
 </RelativeLayout>
