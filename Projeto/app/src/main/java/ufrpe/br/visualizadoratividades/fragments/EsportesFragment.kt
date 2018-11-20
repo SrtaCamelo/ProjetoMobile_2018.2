@@ -9,7 +9,7 @@ import ufrpe.br.visualizadoratividades.R
 
 class EsportesFragment : Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        var view : View = inflater.inflate(R.layout.esportes_fragment, container, false)
+        var view : View = inflater.inflate(R.layout.fragment_esportes, container, false)
         return view
     }
 }
