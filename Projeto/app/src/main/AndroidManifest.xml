@@ -17,9 +17,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ListarAtividadeActivity" android:screenOrientation="sensorPortrait"/>
-        <activity android:name=".AtividadeActivity" android:screenOrientation="sensorPortrait"/>
-        <activity android:name=".FavoritosActivity" android:screenOrientation="sensorPortrait"/>
         <activity android:name=".Main2Activity" android:screenOrientation="sensorPortrait"/>
     </application>
 

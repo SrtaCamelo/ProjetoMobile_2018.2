@@ -1,7 +1,6 @@
 package ufrpe.br.visualizadoratividades.fragments
 
 
-import android.content.Intent
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.view.LayoutInflater
@@ -9,10 +8,8 @@ import android.view.View
 import android.view.ViewGroup
 import android.support.design.widget.TabLayout
 import android.support.v4.view.ViewPager
-import kotlinx.android.synthetic.main.atividade_list_row.*
-import ufrpe.br.visualizadoratividades.AtividadeActivity
 import ufrpe.br.visualizadoratividades.R
-import ufrpe.br.visualizadoratividades.ViewPagerAdapter
+import ufrpe.br.visualizadoratividades.adapters.ViewPagerAdapter
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -30,7 +27,7 @@ class HomeFragment : Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
         // Inflate the layout for this fragment
-        var v : View = inflater.inflate(R.layout.activity_listar_atividade, container, false)
+        var v : View = inflater.inflate(R.layout.fragment_listar_atividade, container, false)
         var fragmentCursos = CursosFragment()
         var fragmentEsportes = EsportesFragment()
         var fragmentIdiomas = IdiomasFragment()

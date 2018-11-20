@@ -3,12 +3,11 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".fragments.CadastrarFragment">
+    android:layout_height="match_parent">
 
     <LinearLayout
-        android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_width="368dp"
+        android:layout_height="495dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
@@ -24,7 +23,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/titulo"
-            android:textSize="14sp" />
+            android:textSize="24sp" />
 
         <EditText
             android:id="@+id/tituloEdit"
@@ -39,7 +38,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/horario"
-            android:textSize="14sp" />
+            android:textSize="24sp" />
 
         <EditText
             android:id="@+id/horarioEdit"
@@ -54,7 +53,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/local"
-            android:textSize="14sp" />
+            android:textSize="24sp" />
 
         <EditText
             android:id="@+id/localEdit"
@@ -69,7 +68,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/descricao"
-            android:textSize="14sp" />
+            android:textSize="24sp" />
 
         <EditText
             android:id="@+id/descricaoEdit"
@@ -85,6 +84,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="100dp"
+            android:onClick="cadastrar"
             android:text="@string/cadastrar" />
     </LinearLayout>
 </android.support.constraint.ConstraintLayout>

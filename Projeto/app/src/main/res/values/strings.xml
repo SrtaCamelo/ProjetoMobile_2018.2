@@ -1,5 +1,4 @@
 <resources>
-    <string name="app_name">Visualizador de Atividades UFRPE</string>
     <string name="nome">Nome</string>
     <string name="horario">Horário</string>
     <string name="descricao">Descrição</string>
@@ -19,9 +18,7 @@
     <string name="idiomas">Idiomas</string>
     <string name="todos">Todos</string>
     <string name="home">Principal</string>
-
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="detalhes">Detalhes</string>
     <string name="favoritar">Favoritar</string>
+    <string name="app_name">O que ocorre na UFRPE?</string>
 </resources>

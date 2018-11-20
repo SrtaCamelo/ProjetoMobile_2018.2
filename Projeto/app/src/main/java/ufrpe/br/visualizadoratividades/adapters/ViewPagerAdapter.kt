@@ -1,4 +1,4 @@
-package ufrpe.br.visualizadoratividades
+package ufrpe.br.visualizadoratividades.adapters
 
 import android.support.v4.app.Fragment
 import android.support.v4.app.FragmentManager

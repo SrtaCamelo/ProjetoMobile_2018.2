@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Visualizador de Atividades UFRPE</string>
+    <string name="app_name">What\'s happening in UFRPE?</string>
     <string name="nome">Name</string>
     <string name="horario">Schedule</string>
     <string name="descricao">Description</string>
