@@ -10,12 +10,4 @@
         android:id="@+id/nav_cadastar"
         android:icon="@mipmap/ic_add"
         android:title="@string/cadastrar" />
-    <item
-        android:id="@+id/nav_atividade"
-        android:icon="@mipmap/ic_activity"
-        android:title="@string/tvAtividade" />
-    <item
-        android:id="@+id/nav_favoritos"
-        android:icon="@mipmap/ic_favorite"
-        android:title="@string/tvFavoritos" />
 </menu>

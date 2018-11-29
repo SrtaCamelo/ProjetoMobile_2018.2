@@ -7,10 +7,11 @@ import android.support.v4.app.Fragment
 import android.view.MenuItem
 import android.view.View
 import android.widget.FrameLayout
-import ufrpe.br.visualizadoratividades.fragments.*
+import ufrpe.br.visualizadoratividades.fragments.AtividadeDetalhesFragment
+import ufrpe.br.visualizadoratividades.fragments.CadastrarFragment
+import ufrpe.br.visualizadoratividades.fragments.HomeFragment
 
-
-class Main2Activity : AppCompatActivity() {
+class Main3Activity : AppCompatActivity() {
 
     private var mMainFrame : FrameLayout? = null
 
@@ -24,8 +25,8 @@ class Main2Activity : AppCompatActivity() {
                     return true
                 }
 
-                R.id.nav_favoritos -> {
-                    val fragment = FavoritosFragment()
+                R.id.nav_cadastar -> {
+                    val fragment = CadastrarFragment()
                     addFragment(fragment)
                     return true
                 }
@@ -35,10 +36,9 @@ class Main2Activity : AppCompatActivity() {
         }
     }
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main2)
+        setContentView(R.layout.activity_main3)
 
         mMainFrame = findViewById(R.id.main_frame) as FrameLayout
         val mMainNav = findViewById(R.id.main_nav) as BottomNavigationView
@@ -58,4 +58,3 @@ class Main2Activity : AppCompatActivity() {
         addFragment(fragment)
     }
 }
-
