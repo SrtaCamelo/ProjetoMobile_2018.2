@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "425219771340",
+    "firebase_url": "https://projetomobile-af12b.firebaseio.com",
+    "project_id": "projetomobile-af12b",
+    "storage_bucket": "projetomobile-af12b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:425219771340:android:afea589c44dfd122",
+        "android_client_info": {
+          "package_name": "ufrpe.br.visualizadoratividades"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "425219771340-sap0sr6rmqptbqntcghu4rup4827good.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "ufrpe.br.visualizadoratividades",
+            "certificate_hash": "ba366a1c3c6aaacf30d2f3d63eb817ab5901344a"
+          }
+        },
+        {
+          "client_id": "425219771340-vgo6aq3493h6i40mg4jc796qn85j7ocv.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBfipx5l7OzssniP7i324lhYYj54qJqObU"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "425219771340-vgo6aq3493h6i40mg4jc796qn85j7ocv.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

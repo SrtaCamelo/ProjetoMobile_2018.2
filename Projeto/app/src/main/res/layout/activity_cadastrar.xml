@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".CadastrarActivity">
+
+    <EditText
+        android:id="@+id/nomeET"
+        android:layout_width="317dp"
+        android:layout_height="45dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="28dp"
+        android:layout_marginEnd="8dp"
+        android:autofillHints=""
+        android:ems="10"
+        android:hint="@string/nome"
+        android:inputType="textEmailAddress"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView8" />
+
+    <EditText
+        android:id="@+id/loginET"
+        android:layout_width="317dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="16dp"
+        android:autofillHints=""
+        android:ems="10"
+        android:hint="@string/email"
+        android:inputType="textEmailAddress"
+        app:layout_constraintEnd_toEndOf="@+id/nomeET"
+        app:layout_constraintStart_toStartOf="@+id/nomeET"
+        app:layout_constraintTop_toBottomOf="@+id/campusSpinner" />
+
+    <EditText
+        android:id="@+id/senhaET"
+        android:layout_width="317dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="12dp"
+        android:ems="10"
+        android:hint="@string/senha"
+        android:importantForAutofill="no"
+        android:inputType="textPassword"
+        app:layout_constraintEnd_toEndOf="@+id/nomeET"
+        app:layout_constraintStart_toStartOf="@+id/nomeET"
+        app:layout_constraintTop_toBottomOf="@+id/loginET" />
+
+    <Button
+        android:id="@+id/loginBT"
+        android:layout_width="317dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="4dp"
+        android:onClick="cadastrar"
+        android:text="@string/cadastrar_conta"
+        app:layout_constraintEnd_toEndOf="@+id/nomeET"
+        app:layout_constraintStart_toStartOf="@+id/nomeET"
+        app:layout_constraintTop_toBottomOf="@+id/senhaET" />
+
+    <TextView
+        android:id="@+id/textView10"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="8dp"
+        android:text="@string/login_pergunta"
+        app:layout_constraintEnd_toEndOf="@+id/loginBT"
+        app:layout_constraintHorizontal_bias="0.523"
+        app:layout_constraintStart_toStartOf="@+id/loginBT"
+        app:layout_constraintTop_toBottomOf="@+id/loginBT" />
+
+    <Button
+        android:id="@+id/cadastrar"
+        android:layout_width="317dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        android:background="@color/colorPrimary"
+        android:onClick="gotoLogin"
+        android:text="@string/entrar_conta"
+        android:textColor="@color/colorWhite"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/nomeET"
+        app:layout_constraintStart_toStartOf="@+id/nomeET"
+        app:layout_constraintTop_toBottomOf="@+id/textView10"
+        app:layout_constraintVertical_bias="0.056" />
+
+    <TextView
+        android:id="@+id/textView8"
+        android:layout_width="317dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="32dp"
+        android:text="@string/cadastrar_conta"
+        android:textSize="30sp"
+        app:layout_constraintEnd_toEndOf="@+id/nomeET"
+        app:layout_constraintHorizontal_bias="0.661"
+        app:layout_constraintStart_toStartOf="@+id/nomeET"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/campusTV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="20dp"
+        android:text="@string/campus"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="@+id/nomeET"
+        app:layout_constraintTop_toBottomOf="@+id/cursoSpinner" />
+
+    <Spinner
+        android:id="@+id/campusSpinner"
+        android:layout_width="176dp"
+        android:layout_height="45dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintEnd_toEndOf="@+id/nomeET"
+        app:layout_constraintHorizontal_bias="0.901"
+        app:layout_constraintStart_toEndOf="@+id/campusTV"
+        app:layout_constraintTop_toBottomOf="@+id/cursoSpinner" />
+
+    <Spinner
+        android:id="@+id/cursoSpinner"
+        android:layout_width="235dp"
+        android:layout_height="42dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintEnd_toEndOf="@+id/nomeET"
+        app:layout_constraintStart_toEndOf="@+id/cursoTV"
+        app:layout_constraintTop_toBottomOf="@+id/nomeET" />
+
+    <TextView
+        android:id="@+id/cursoTV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="24dp"
+        android:text="@string/curso"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="@+id/nomeET"
+        app:layout_constraintTop_toBottomOf="@+id/nomeET" />
+
+</android.support.constraint.ConstraintLayout>

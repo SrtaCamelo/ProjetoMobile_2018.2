@@ -20,5 +20,22 @@
     <string name="home">Principal</string>
     <string name="detalhes">Detalhes</string>
     <string name="favoritar">Favoritar</string>
-    <string name="app_name">O que ocorre na UFRPE?</string>
+    <string name="app_name">O que rola na UFRPE?</string>
+    <string name="login">Login</string>
+    <string name="senha">Senha</string>
+    <string name="email">Email</string>
+    <string name="cadastrar_pergunta">Ainda não tem uma conta?</string>
+    <string name="login_title">Entrar</string>
+    <string name="criar_conta">Criar uma nova conta</string>
+    <string name="cadastrar_conta">Cadastrar</string>
+    <string name="login_pergunta">Já possui uma conta?</string>
+    <string name="entrar_conta">Entrar com sua conta</string>
+    <string name="campus">Campus</string>
+    <string name="curso">Curso</string>
+    <string name="usuario_criado">Usuário criado com sucesso!</string>
+    <string name="senha_pequena">A senha deve ter no mínimo 5 caracteres</string>
+    <string name="email_cadastrado">O email informado já está em uso</string>
+    <string name="email_nao_cadastrado">Esse email não foi cadastrado</string>
+    <string name="senha_incorreta">Senha incorreta</string>
+    <string name="logado_sucesso">Entrando...</string>
 </resources>

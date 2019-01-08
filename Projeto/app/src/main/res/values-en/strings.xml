@@ -21,5 +21,21 @@
     <string name="home">Home</string>
     <string name="detalhes">Details</string>
     <string name="favoritar">Favorite</string>
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="login">Login</string>
+    <string name="senha">Password</string>
+    <string name="email">Email</string>
+    <string name="cadastrar_pergunta">Does not have a account yet?</string>
+    <string name="login_title">Log In</string>
+    <string name="criar_conta">Create a new account</string>
+    <string name="cadastrar_conta">Sign Up</string>
+    <string name="login_pergunta">Already have a account?</string>
+    <string name="entrar_conta">Login with your account</string>
+    <string name="campus">Campus</string>
+    <string name="curso">Course</string>
+    <string name="usuario_criado">User has been created successfully!</string>
+    <string name="senha_pequena">The password must have the minimum size of 5</string>
+    <string name="email_cadastrado">This email has already been used</string>
+    <string name="email_nao_cadastrado">This email was not registered</string>
+    <string name="senha_incorreta">Wrong password</string>
+    <string name="logado_sucesso">Log in...</string>
 </resources>
