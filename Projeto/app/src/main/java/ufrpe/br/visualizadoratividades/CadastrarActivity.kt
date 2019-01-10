@@ -20,6 +20,8 @@ class CadastrarActivity : AppCompatActivity() {
     val campus = arrayOf("Sede","UACSA", "UAST")
     var database : FirebaseDatabase? = null
     var usuarios : DatabaseReference? = null
+    var mAuth: FirebaseAuth? = null
+    var mAuthListener: FirebaseAuth.AuthStateListener? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -27,6 +29,8 @@ class CadastrarActivity : AppCompatActivity() {
 
         database = FirebaseDatabase.getInstance()
         usuarios = database!!.getReference("Usuarios")
+        mAuth = FirebaseAuth.getInstance()
+        mAuthListener = FirebaseAuth.AuthStateListener {  }
 
         val adapter1 = ArrayAdapter(this, R.layout.support_simple_spinner_dropdown_item, cursos)
         cursoSpinner.adapter = adapter1
@@ -47,16 +51,31 @@ class CadastrarActivity : AppCompatActivity() {
 
             override fun onDataChange(dataSnapshot: DataSnapshot) {
                 if (verificarDados(usuario)){
-                    if (usuario.senha.length < 5){
+                    if (usuario.senha.length < 6){
                         Toast.makeText(applicationContext, R.string.senha_pequena, Toast.LENGTH_SHORT).show()
                     }else{
                         if (dataSnapshot.child(usuario.email).exists()){
                             Toast.makeText(applicationContext, R.string.email_cadastrado, Toast.LENGTH_SHORT).show()
                         }else{
-                            usuarios!!.child(usuario.email).setValue(usuario)
-                            Toast.makeText(applicationContext, R.string.usuario_criado, Toast.LENGTH_SHORT).show()
-                            val intent = Intent(applicationContext, Main2Activity::class.java)
-                            startActivity(intent)
+                            usuario.DecodeString()
+                            mAuth!!.createUserWithEmailAndPassword(usuario.email,usuario.senha)
+
+                                    .addOnCompleteListener { task ->
+                                        if (task.isSuccessful) {
+                                            usuario.EncodeString()
+                                            usuarios!!.child(usuario.email).setValue(usuario)
+                                            Toast.makeText(applicationContext, R.string.usuario_criado, Toast.LENGTH_SHORT).show()
+                                            val intent = Intent(applicationContext, Main2Activity::class.java)
+                                            startActivity(intent)
+                                            finish()
+                                        }
+                                    }
+
+                                    .addOnFailureListener { exception ->
+                                        if (exception != null) {
+                                            Toast.makeText(applicationContext, exception.localizedMessage, Toast.LENGTH_LONG).show()
+                                        }
+                                    }
                         }
                     }
                 }

@@ -8,6 +8,9 @@ class Atividade {
     var descricao : String = ""
     var local : String = ""
     var horario : String = ""
+    var dia : String = ""
+    var tipo : String = ""
+    var autor : String = ""
 
     constructor() {}
 
@@ -16,6 +19,17 @@ class Atividade {
         this.descricao = descricao
         this.horario = horario
         this.local = local
+        this.tipo = ""
+    }
+
+    constructor(titulo : String, descricao : String, horario : String, local : String, tipo : String, dia : String, autor : String){
+        this.titulo = titulo
+        this.descricao = descricao
+        this.horario = horario
+        this.local = local
+        this.tipo = tipo
+        this.dia = dia
+        this.autor = autor
     }
 
 }

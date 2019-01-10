@@ -33,9 +33,10 @@
     <string name="campus">Campus</string>
     <string name="curso">Curso</string>
     <string name="usuario_criado">Usuário criado com sucesso!</string>
-    <string name="senha_pequena">A senha deve ter no mínimo 5 caracteres</string>
+    <string name="senha_pequena">A senha deve ter no mínimo 6 caracteres</string>
     <string name="email_cadastrado">O email informado já está em uso</string>
     <string name="email_nao_cadastrado">Esse email não foi cadastrado</string>
     <string name="senha_incorreta">Senha incorreta</string>
     <string name="logado_sucesso">Entrando...</string>
+    <string name="tipo">Tipo</string>
 </resources>

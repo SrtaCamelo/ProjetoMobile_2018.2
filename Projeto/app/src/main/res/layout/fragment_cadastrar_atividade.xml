@@ -3,7 +3,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    tools:context=".CadastrarAtividadeActivity">
+
 
     <LinearLayout
         android:layout_width="0dp"
@@ -17,6 +19,13 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/textView9"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/tvAtividade"
+            android:textSize="30sp" />
 
         <TextView
             android:id="@+id/textView5"
@@ -40,13 +49,28 @@
             android:text="@string/horario"
             android:textSize="14sp" />
 
-        <EditText
-            android:id="@+id/horarioEdit"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="textPersonName"
-            android:textSize="14sp" />
+            android:layout_height="41dp"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/horaButton"
+                android:layout_width="337dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@android:color/holo_blue_light"
+                android:onClick="definirHora"
+                android:text="00:00"
+                android:textColor="@color/colorWhite"
+                android:textSize="18sp" />
+
+            <Spinner
+                android:id="@+id/diaSpinner"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1" />
+        </LinearLayout>
 
         <TextView
             android:id="@+id/textView7"
@@ -71,19 +95,38 @@
             android:textSize="14sp" />
 
         <EditText
-            android:id="@+id/descricaoEdit"
+            android:id="@+id/descricaoET"
+            android:layout_width="match_parent"
+            android:layout_height="105dp"
+            android:ems="10"
+            android:inputType="textMultiLine" />
+
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="textPersonName"
-            android:singleLine="false"
-            android:textSize="14sp" />
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/textView12"
+                android:layout_width="325dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/tipo" />
+
+            <Spinner
+                android:id="@+id/tipoSpinner"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
+        </LinearLayout>
 
         <Button
             android:id="@+id/cadastrarButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="100dp"
+            android:onClick="cadastrar"
             android:text="@string/cadastrar" />
+
     </LinearLayout>
 </android.support.constraint.ConstraintLayout>

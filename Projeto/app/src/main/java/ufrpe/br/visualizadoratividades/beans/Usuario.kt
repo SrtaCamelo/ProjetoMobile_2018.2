@@ -27,7 +27,7 @@ class Usuario {
         this.email = this.email.replace(".", ",")
     }
 
-    fun DecodeString(string: String){
+    fun DecodeString(){
         this.email = this.email.replace(",", ".")
     }
 }

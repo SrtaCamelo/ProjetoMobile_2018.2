@@ -4,6 +4,7 @@ import android.content.DialogInterface
 import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
@@ -20,9 +21,15 @@ class LoginActivity : AppCompatActivity() {
 
     var database : FirebaseDatabase? = null
     var usuarios : DatabaseReference? = null
+    var mAuth: FirebaseAuth? = null
+    var mAuthListener: FirebaseAuth.AuthStateListener? = null
 
     override fun onStart() {
         super.onStart()
+
+        val currentUser = mAuth?.currentUser
+        Log.i( "FireBase", "Email:" + currentUser?.email)
+
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -31,6 +38,8 @@ class LoginActivity : AppCompatActivity() {
 
         database = FirebaseDatabase.getInstance()
         usuarios = database!!.getReference("Usuarios")
+        mAuth = FirebaseAuth.getInstance()
+        mAuthListener = FirebaseAuth.AuthStateListener {  }
 
         loginBT.setOnClickListener {
             var usuario = Usuario(loginET.text.toString(), senhaET.text.toString())
@@ -49,12 +58,27 @@ class LoginActivity : AppCompatActivity() {
 
             override fun onDataChange(dataSnapshot: DataSnapshot) {
                 if (verificarDados(usuario)){
+
                     if (dataSnapshot.child(usuario.email).exists()) {
+
                         var login = dataSnapshot.child(usuario.email).getValue(Usuario::class.java)
+
                         if(login!!.senha.equals(usuario.senha)){
-                            Toast.makeText(applicationContext, R.string.logado_sucesso, Toast.LENGTH_SHORT).show()
-                            val intent = Intent(applicationContext, Main2Activity::class.java)
-                            startActivity(intent)
+
+                            usuario.DecodeString()
+                            mAuth!!.signInWithEmailAndPassword(usuario.email,usuario.senha)
+                                    .addOnCompleteListener { task ->
+                                        if (task.isSuccessful) {
+                                            Toast.makeText(applicationContext, R.string.logado_sucesso, Toast.LENGTH_SHORT).show()
+                                            val intent = Intent(applicationContext, Main2Activity::class.java)
+                                            startActivity(intent)
+                                            finish()
+                                        }
+                                    }
+                                    .addOnFailureListener { exception ->
+                                        Toast.makeText(applicationContext,exception.localizedMessage, Toast.LENGTH_LONG).show()
+                                    }
+
                         } else{
                             Toast.makeText(applicationContext, R.string.senha_incorreta, Toast.LENGTH_SHORT).show()
                         }

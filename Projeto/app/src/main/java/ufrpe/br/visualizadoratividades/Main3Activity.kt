@@ -57,4 +57,9 @@ class Main3Activity : AppCompatActivity() {
         val fragment = AtividadeDetalhesFragment()
         addFragment(fragment)
     }
+
+    override fun onBackPressed() {
+
+    }
+
 }
