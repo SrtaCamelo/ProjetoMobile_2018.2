@@ -6,12 +6,20 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ListView
+import com.google.firebase.database.*
 import ufrpe.br.visualizadoratividades.R
 import ufrpe.br.visualizadoratividades.adapters.AtividadesAdapter
 import ufrpe.br.visualizadoratividades.beans.Atividade
 
 class IdiomasFragment : Fragment() {
+
+    var database : FirebaseDatabase? = null
+    var atividades_database : DatabaseReference? = null
+
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+        database = FirebaseDatabase.getInstance()
+        atividades_database = database!!.getReference("Atividades")
+
         var view : View = inflater.inflate(R.layout.fragment_idiomas, container, false)
         var listview: ListView = view.findViewById(R.id.listIdiomas)
         var adapter = AtividadesAdapter(activity, generateData())
@@ -22,14 +30,22 @@ class IdiomasFragment : Fragment() {
     private fun generateData(): ArrayList<Atividade> {
         var result = ArrayList<Atividade>()
 
-        for (i in 1..10){
-            var atividade2: Atividade = Atividade("Ingles Básico", "Aula de inglês nível básico",
-                    "19:00", "CEGOE- Sala 10")
-            result.add(atividade2)
-            var atividade3: Atividade = Atividade("Inglês Avançado", "Aula de inglês para nível avançado",
-                    "10:00", "CEGOE - Sala 4")
-            result.add(atividade3)
-        }
+        atividades_database!!.addValueEventListener(object : ValueEventListener {
+            override fun onCancelled(p0: DatabaseError) {
+                TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+            }
+
+            override fun onDataChange(p0: DataSnapshot) {
+                if (p0!!.exists()){
+                    for (e in p0.children){
+                        val atividade = e.getValue(Atividade::class.java)
+                        if (atividade?.tipo.equals("Idiomas")) {
+                            result.add(atividade!!)
+                        }
+                    }
+                }
+            }
+        })
 
         return result
     }

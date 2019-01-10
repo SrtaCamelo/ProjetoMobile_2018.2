@@ -41,7 +41,8 @@ class CadastrarActivity : AppCompatActivity() {
     }
 
     fun cadastrar(view: View){
-        var usuario = Usuario(nomeET.text.toString(), cursoSpinner.selectedItem.toString(), campusSpinner.selectedItem.toString(), loginET.text.toString(), senhaET.text.toString())
+        var usuario = Usuario(nomeET.text.toString(), cursoSpinner.selectedItem.toString(),
+                campusSpinner.selectedItem.toString(), loginET.text.toString(), senhaET.text.toString())
         usuario.EncodeString()
 
         usuarios!!.addListenerForSingleValueEvent(object : ValueEventListener {
@@ -52,10 +53,12 @@ class CadastrarActivity : AppCompatActivity() {
             override fun onDataChange(dataSnapshot: DataSnapshot) {
                 if (verificarDados(usuario)){
                     if (usuario.senha.length < 6){
-                        Toast.makeText(applicationContext, R.string.senha_pequena, Toast.LENGTH_SHORT).show()
+                        Toast.makeText(applicationContext, R.string.senha_pequena,
+                                Toast.LENGTH_SHORT).show()
                     }else{
                         if (dataSnapshot.child(usuario.email).exists()){
-                            Toast.makeText(applicationContext, R.string.email_cadastrado, Toast.LENGTH_SHORT).show()
+                            Toast.makeText(applicationContext, R.string.email_cadastrado,
+                                    Toast.LENGTH_SHORT).show()
                         }else{
                             usuario.DecodeString()
                             mAuth!!.createUserWithEmailAndPassword(usuario.email,usuario.senha)
@@ -64,7 +67,8 @@ class CadastrarActivity : AppCompatActivity() {
                                         if (task.isSuccessful) {
                                             usuario.EncodeString()
                                             usuarios!!.child(usuario.email).setValue(usuario)
-                                            Toast.makeText(applicationContext, R.string.usuario_criado, Toast.LENGTH_SHORT).show()
+                                            Toast.makeText(applicationContext,
+                                                    R.string.usuario_criado, Toast.LENGTH_SHORT).show()
                                             val intent = Intent(applicationContext, Main2Activity::class.java)
                                             startActivity(intent)
                                             finish()
@@ -73,7 +77,8 @@ class CadastrarActivity : AppCompatActivity() {
 
                                     .addOnFailureListener { exception ->
                                         if (exception != null) {
-                                            Toast.makeText(applicationContext, exception.localizedMessage, Toast.LENGTH_LONG).show()
+                                            Toast.makeText(applicationContext,
+                                                    exception.localizedMessage, Toast.LENGTH_LONG).show()
                                         }
                                     }
                         }

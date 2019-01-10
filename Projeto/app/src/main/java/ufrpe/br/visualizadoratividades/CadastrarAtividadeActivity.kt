@@ -62,7 +62,7 @@ class CadastrarAtividadeActivity : AppCompatActivity(), TimePickerDialog.OnTimeS
             override fun onDataChange(dataSnapshot: DataSnapshot) {
                 if (verificarDados(atividade)){
                     usuarios!!.child(uuid.toString()).setValue(atividade)
-                    Toast.makeText(applicationContext, R.string.usuario_criado, Toast.LENGTH_SHORT).show()
+                    Toast.makeText(applicationContext, R.string.registro_sucesso, Toast.LENGTH_SHORT).show()
                     finish()
                 }
             }

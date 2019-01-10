@@ -52,4 +52,5 @@
         android:layout_toEndOf="@+id/btDetalhes"
         android:text="@string/favoritar"
         android:textSize="10sp" />
+
 </RelativeLayout>
