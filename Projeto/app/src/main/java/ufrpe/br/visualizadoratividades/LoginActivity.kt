@@ -62,7 +62,7 @@ class LoginActivity : AppCompatActivity() {
                            val sp = getSharedPreferences("Login", Context.MODE_PRIVATE)
                            val ed = sp.edit()
                            ed.putString("email", usuario.email)
-                           ed.putString("login", usuario.senha)
+                           ed.putString("senha", usuario.senha)
                            ed.commit()
                            finish()
                        }

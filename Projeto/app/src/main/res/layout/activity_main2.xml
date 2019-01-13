@@ -49,13 +49,13 @@
         android:layout_above="@id/consLayout"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
+        android:layout_gravity="top"
         android:layout_marginEnd="12dp"
         android:layout_marginBottom="65dp"
         android:onClick="gotoCadastrar"
-        app:fab_colorNormal="@color/colorPrimary"
-        app:fab_colorPressed="@color/colorPrimary"
-        app:fab_icon="@mipmap/ic_add"
-        android:layout_gravity="top"/>
+        app:fab_colorNormal="@android:color/holo_blue_dark"
+        app:fab_colorPressed="@color/colorAccent"
+        app:fab_icon="@mipmap/ic_add" />
 
 
 </RelativeLayout>

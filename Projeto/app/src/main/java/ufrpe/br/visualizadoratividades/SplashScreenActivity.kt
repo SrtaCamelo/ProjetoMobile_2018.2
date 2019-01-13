@@ -20,39 +20,35 @@ class SplashScreenActivity : AppCompatActivity() {
         setContentView(R.layout.activity_splash_screen)
         mAuth = FirebaseAuth.getInstance()
         mAuthListener = FirebaseAuth.AuthStateListener {  }
-        preferences = PreferenceManager.getDefaultSharedPreferences(this)
+        preferences = getSharedPreferences("Login", Context.MODE_PRIVATE)
         supportActionBar!!.hide()
 
 
         Handler().postDelayed({
-            if(checkLogin(preferences!!.getString("email", ""), preferences!!.getString("senha", ""))){
-                val intent = Intent(applicationContext, Main2Activity::class.java)
-                startActivity(intent)
-            }else{
-                val intent = Intent(this, LoginActivity::class.java)
-                startActivity(intent)
-                finish()
-            }
+            checkLogin(preferences!!.getString("email", ""), preferences!!.getString("senha", ""))
         }, 5000)
     }
 
-    private fun checkLogin(email: String?, senha: String?): Boolean {
-        var result: Boolean = false
-
+    private fun checkLogin(email: String?, senha: String?){
         if (email.isNullOrBlank() or senha.isNullOrBlank()){
-            return result
+            val intent = Intent(this, LoginActivity::class.java)
+            startActivity(intent)
+            finish()
         }
         mAuth!!.signInWithEmailAndPassword(email!!, senha!!)
                 .addOnCompleteListener { task ->
                     if (task.isSuccessful) {
-                        Toast.makeText(applicationContext, R.string.logado_sucesso, Toast.LENGTH_SHORT).show()
-                        result = true
+                        val intent = Intent(applicationContext, Main2Activity::class.java)
+                        startActivity(intent)
+                        finish()
                     }
                 }
                 .addOnFailureListener { exception ->
-                    Toast.makeText(applicationContext,exception.localizedMessage, Toast.LENGTH_LONG).show()
+                    val intent = Intent(this, LoginActivity::class.java)
+                    startActivity(intent)
+                    finish()
                 }
-        return result
+
     }
 
 }
