@@ -13,10 +13,9 @@ import com.google.firebase.database.*
 import kotlinx.android.synthetic.main.activity_login.*
 import ufrpe.br.visualizadoratividades.beans.Usuario
 import ufrpe.br.visualizadoratividades.R.id.loginBT
-
-
-
-
+import android.R.id.edit
+import android.content.Context
+import android.content.SharedPreferences
 class LoginActivity : AppCompatActivity() {
 
     var database : FirebaseDatabase? = null
@@ -51,48 +50,30 @@ class LoginActivity : AppCompatActivity() {
 
     fun entrar(usuario: Usuario){
 
-        usuarios!!.addListenerForSingleValueEvent(object : ValueEventListener {
-            override fun onCancelled(p0: DatabaseError) {
-                TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
-            }
+       if (verificarDados(usuario)){
 
-            override fun onDataChange(dataSnapshot: DataSnapshot) {
-                if (verificarDados(usuario)){
+           usuario.DecodeString()
+           mAuth!!.signInWithEmailAndPassword(usuario.email,usuario.senha)
+                   .addOnCompleteListener { task ->
+                       if (task.isSuccessful) {
+                           Toast.makeText(applicationContext, R.string.logado_sucesso, Toast.LENGTH_SHORT).show()
+                           val intent = Intent(applicationContext, Main2Activity::class.java)
+                           startActivity(intent)
+                           val sp = getSharedPreferences("Login", Context.MODE_PRIVATE)
+                           val ed = sp.edit()
+                           ed.putString("email", usuario.email)
+                           ed.putString("login", usuario.senha)
+                           ed.commit()
+                           finish()
+                       }
+                   }
+                   .addOnFailureListener { exception ->
+                       Toast.makeText(applicationContext,exception.localizedMessage, Toast.LENGTH_LONG).show()
+                   }
 
-                    if (dataSnapshot.child(usuario.email).exists()) {
-
-                        var login = dataSnapshot.child(usuario.email).getValue(Usuario::class.java)
-
-                        if(login!!.senha.equals(usuario.senha)){
-
-                            usuario.DecodeString()
-                            mAuth!!.signInWithEmailAndPassword(usuario.email,usuario.senha)
-                                    .addOnCompleteListener { task ->
-                                        if (task.isSuccessful) {
-                                            Toast.makeText(applicationContext, R.string.logado_sucesso, Toast.LENGTH_SHORT).show()
-                                            val intent = Intent(applicationContext, Main2Activity::class.java)
-                                            startActivity(intent)
-                                            finish()
-                                        }
-                                    }
-                                    .addOnFailureListener { exception ->
-                                        Toast.makeText(applicationContext,exception.localizedMessage, Toast.LENGTH_LONG).show()
-                                    }
-
-                        } else{
-                            Toast.makeText(applicationContext, R.string.senha_incorreta, Toast.LENGTH_SHORT).show()
-                        }
-                    }else{
-                        Toast.makeText(applicationContext, R.string.email_nao_cadastrado, Toast.LENGTH_SHORT).show()
-                    }
-
-                }else{
-                    Toast.makeText(applicationContext, "Digite corretamente", Toast.LENGTH_SHORT).show()
-                }
-
-            }
-        })
-
+       }else{
+           Toast.makeText(applicationContext, "Digite corretamente", Toast.LENGTH_SHORT).show()
+       }
     }
 
     private fun verificarDados(usuario: Usuario): Boolean {

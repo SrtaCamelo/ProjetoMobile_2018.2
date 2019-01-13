@@ -1,6 +1,8 @@
 package ufrpe.br.visualizadoratividades
 
+import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.design.widget.BottomNavigationView
@@ -15,6 +17,7 @@ import ufrpe.br.visualizadoratividades.fragments.*
 class Main2Activity : AppCompatActivity() {
 
     private var mMainFrame : FrameLayout? = null
+    private var preferences : SharedPreferences? = null
 
     private val mOnNavigationItemSelectedListener = object : BottomNavigationView.OnNavigationItemSelectedListener {
 
@@ -46,6 +49,7 @@ class Main2Activity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main2)
+        preferences = getSharedPreferences("Login", Context.MODE_PRIVATE)
 
         mMainFrame = findViewById(R.id.main_frame) as FrameLayout
         val mMainNav = findViewById(R.id.main_nav) as BottomNavigationView
@@ -63,6 +67,15 @@ class Main2Activity : AppCompatActivity() {
     fun detalhes(view: View?){
         val fragment = AtividadeDetalhesFragment()
         addFragment(fragment)
+    }
+
+    fun logout(view: View?){
+        preferences!!.edit()
+                .remove("email")
+                .remove("senha")
+        val intent = Intent(applicationContext, LoginActivity::class.java)
+        startActivity(intent)
+        finish()
     }
 }
 
