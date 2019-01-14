@@ -7,6 +7,7 @@ import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.design.widget.BottomNavigationView
 import android.support.v4.app.Fragment
+import android.view.Menu
 import android.view.MenuItem
 import android.view.View
 import android.widget.FrameLayout
@@ -18,6 +19,19 @@ class Main2Activity : AppCompatActivity() {
 
     private var mMainFrame : FrameLayout? = null
     private var preferences : SharedPreferences? = null
+
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
+        menuInflater.inflate(R.menu.logout_menu, menu)
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        val id = item.itemId
+        if (id == R.id.logout_item) {
+            logout()
+        }
+        return super.onOptionsItemSelected(item)
+    }
 
     private val mOnNavigationItemSelectedListener = object : BottomNavigationView.OnNavigationItemSelectedListener {
 
@@ -69,13 +83,14 @@ class Main2Activity : AppCompatActivity() {
         addFragment(fragment)
     }
 
-    fun logout(view: View?){
-        preferences!!.edit()
-                .remove("email")
-                .remove("senha")
+    fun logout(){
+
+        val edit  = preferences!!.edit()
+        edit.remove("email").remove("senha")
+        edit.commit()
         val intent = Intent(applicationContext, LoginActivity::class.java)
         startActivity(intent)
-        finish()
+        finishAffinity()
     }
 }
 

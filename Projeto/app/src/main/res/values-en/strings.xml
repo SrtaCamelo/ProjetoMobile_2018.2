@@ -39,4 +39,5 @@
     <string name="senha_incorreta">Wrong password</string>
     <string name="logado_sucesso">Log in...</string>
     <string name="tipo">Kind</string>
+    <string name="logout">Logout</string>
 </resources>

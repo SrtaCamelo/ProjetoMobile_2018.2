@@ -30,25 +30,25 @@ class SplashScreenActivity : AppCompatActivity() {
     }
 
     private fun checkLogin(email: String?, senha: String?){
-        if (email.isNullOrBlank() or senha.isNullOrBlank()){
+        if (email.isNullOrEmpty() or senha.isNullOrEmpty()){
             val intent = Intent(this, LoginActivity::class.java)
             startActivity(intent)
             finish()
-        }
-        mAuth!!.signInWithEmailAndPassword(email!!, senha!!)
-                .addOnCompleteListener { task ->
-                    if (task.isSuccessful) {
-                        val intent = Intent(applicationContext, Main2Activity::class.java)
+        }else{
+            mAuth!!.signInWithEmailAndPassword(email!!, senha!!)
+                    .addOnCompleteListener { task ->
+                        if (task.isSuccessful) {
+                            val intent = Intent(applicationContext, Main2Activity::class.java)
+                            startActivity(intent)
+                            finish()
+                        }
+                    }
+                    .addOnFailureListener { exception ->
+                        val intent = Intent(this, LoginActivity::class.java)
                         startActivity(intent)
                         finish()
                     }
-                }
-                .addOnFailureListener { exception ->
-                    val intent = Intent(this, LoginActivity::class.java)
-                    startActivity(intent)
-                    finish()
-                }
-
+        }
     }
 
 }
