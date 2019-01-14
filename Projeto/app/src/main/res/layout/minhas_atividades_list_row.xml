@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
     android:layout_height="match_parent">
 
     <TextView
@@ -23,31 +25,15 @@
         android:layout_marginTop="6dp"
         android:text="@string/horario" />
 
-    <Button
-        android:id="@+id/btEditar"
-        style="@style/Widget.MaterialComponents.Button.TextButton"
-        android:layout_width="56dp"
-        android:layout_height="25dp"
-        android:layout_marginStart="138dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
-        android:layout_toEndOf="@+id/tvHorario"
-        android:text="@string/editar"
-        android:textAlignment="center"
-        android:textSize="10sp" />
-
-    <Button
-        android:id="@+id/btExcluir"
-        style="@style/Widget.MaterialComponents.Button.TextButton"
-        android:layout_width="65dp"
-        android:layout_height="25dp"
+    <ImageButton
+        android:id="@+id/deleteButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
-        android:layout_marginStart="11dp"
-        android:layout_marginTop="17dp"
-        android:layout_marginEnd="25dp"
-        android:layout_toEndOf="@+id/btEditar"
-        android:text="@string/excluir"
-        android:textSize="10sp" />
+        android:layout_marginTop="0dp"
+        android:layout_marginEnd="0dp"
+        app:srcCompat="@android:drawable/ic_menu_delete" />
+
 
 </RelativeLayout>

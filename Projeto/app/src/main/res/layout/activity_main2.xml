@@ -14,7 +14,7 @@
 
         <android.support.design.widget.BottomNavigationView
             android:id="@+id/main_nav"
-            android:layout_width="382dp"
+            android:layout_width="wrap_content"
             android:layout_height="0dp"
             android:layout_alignParentEnd="true"
             android:background="@color/colorPrimary"
@@ -30,9 +30,6 @@
             android:id="@+id/main_frame"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="8dp"
             android:onClick="gotoCadastrar"
             app:layout_constraintBottom_toTopOf="@+id/main_nav"
             app:layout_constraintEnd_toEndOf="parent"
