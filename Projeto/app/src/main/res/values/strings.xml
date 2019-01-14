@@ -40,4 +40,7 @@
     <string name="logado_sucesso">Entrando...</string>
     <string name="tipo">Tipo</string>
     <string name="logout">Sair</string>
+    <string name="minhas_atividades">Minhas Atividades</string>
+    <string name="editar">Editar</string>
+    <string name="excluir">Excluir</string>
 </resources>

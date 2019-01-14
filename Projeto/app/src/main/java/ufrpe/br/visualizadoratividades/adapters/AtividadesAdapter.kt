@@ -77,27 +77,22 @@ class AtividadesAdapter (private var activity: Activity?,
         var usuario_database : DatabaseReference? = database!!.getReference("Usuarios")
         var usuario = mAuth!!.currentUser
         var email = usuario!!.email.toString()
+        email = email.replace(".", ",")
 
-        var usuario_logado = Usuario(email)
-        usuario_logado.EncodeString()
 
-        Log.i("Favorito", "Usuario Antes "+usuario_logado.email)
         usuario_database?.addValueEventListener(object : ValueEventListener{
             override fun onCancelled(p0: DatabaseError) {
                 TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
             }
 
             override fun onDataChange(dataSnapshot: DataSnapshot) {
-                var usuario_aux = dataSnapshot.child(usuario_logado.email).getValue(Usuario::class.java)
+                var usuario_aux = dataSnapshot.child(email).getValue(Usuario::class.java) as Usuario
 
-                Log.i("Favorito", "Usuario Depois"+usuario_aux!!.email)
+                val key_atividade = buscarAtividade(atividade)
 
-//                val key_atividade = buscarAtividade(atividade)
+                usuario_aux!!.addFavorito(key_atividade)
 
-//                usuario_aux!!.addFavorito(key_atividade)
-
-//                usuario_database!!.child(usuario_logado.email).setValue(usuario_aux)
-//                dataSnapshot.child(usuario_logado.email).setValue(usuario_aux::class.java)
+                usuario_database!!.child(email).setValue(usuario_aux)
             }
         })
     }

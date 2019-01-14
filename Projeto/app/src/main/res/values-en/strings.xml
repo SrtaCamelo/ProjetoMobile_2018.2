@@ -40,4 +40,7 @@
     <string name="logado_sucesso">Log in...</string>
     <string name="tipo">Kind</string>
     <string name="logout">Logout</string>
+    <string name="minhas_atividades">My Activities</string>
+    <string name="editar">edit</string>
+    <string name="excluir">delete</string>
 </resources>

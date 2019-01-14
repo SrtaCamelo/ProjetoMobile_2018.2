@@ -48,6 +48,12 @@ class Main2Activity : AppCompatActivity() {
                     addFragment(fragment)
                     return true
                 }
+
+                R.id.nav_minhas_atividades -> {
+                    val fragment = MinhasAtividadesFragment()
+                    addFragment(fragment)
+                    return true
+                }
             }
             return false
 
