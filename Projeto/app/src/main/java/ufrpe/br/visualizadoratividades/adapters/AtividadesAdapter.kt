@@ -2,13 +2,19 @@ package ufrpe.br.visualizadoratividades.adapters
 
 import android.app.Activity
 import android.content.Context
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.BaseAdapter
+import android.widget.Button
 import android.widget.TextView
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.*
 import ufrpe.br.visualizadoratividades.beans.Atividade
 import ufrpe.br.visualizadoratividades.R
+import ufrpe.br.visualizadoratividades.beans.Usuario
+import java.util.*
 
 
 class AtividadesAdapter (private var activity: Activity?,
@@ -17,12 +23,17 @@ class AtividadesAdapter (private var activity: Activity?,
     private class ViewHolder(row: View?) {
         var tvTitulo: TextView? = null
         var tvHorario: TextView? = null
+        var btFavorito: Button? = null
 
         init {
-            this.tvTitulo = row?.findViewById<TextView>(R.id.tvTitulo)
-            this.tvHorario = row?.findViewById<TextView>(R.id.tvHorario)
+            this.tvTitulo = row?.findViewById(R.id.tvTitulo)
+            this.tvHorario = row?.findViewById(R.id.tvHorario)
+            this.btFavorito = row?.findViewById(R.id.btFavoritar)
         }
     }
+
+    var mAuth: FirebaseAuth? = FirebaseAuth.getInstance()
+    var database : FirebaseDatabase? = FirebaseDatabase.getInstance()
 
     override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
         val view: View?
@@ -41,6 +52,12 @@ class AtividadesAdapter (private var activity: Activity?,
         viewHolder.tvTitulo?.text = atividadeDto.titulo
         viewHolder.tvHorario?.text = atividadeDto.horario
 
+        viewHolder.btFavorito?.setOnClickListener(object : View.OnClickListener{
+            override fun onClick(v: View?) {
+                favoritar(atividadeDto)
+            }
+        })
+
         return view as View
     }
 
@@ -54,5 +71,56 @@ class AtividadesAdapter (private var activity: Activity?,
 
     override fun getCount(): Int {
         return items.size
+    }
+
+    private fun favoritar(atividade : Atividade){
+        var usuario_database : DatabaseReference? = database!!.getReference("Usuarios")
+        var usuario = mAuth!!.currentUser
+        var email = usuario!!.email.toString()
+
+        var usuario_logado = Usuario(email)
+        usuario_logado.EncodeString()
+
+        Log.i("Favorito", "Usuario Antes "+usuario_logado.email)
+        usuario_database?.addValueEventListener(object : ValueEventListener{
+            override fun onCancelled(p0: DatabaseError) {
+                TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+            }
+
+            override fun onDataChange(dataSnapshot: DataSnapshot) {
+                var usuario_aux = dataSnapshot.child(usuario_logado.email).getValue(Usuario::class.java)
+
+                Log.i("Favorito", "Usuario Depois"+usuario_aux!!.email)
+
+//                val key_atividade = buscarAtividade(atividade)
+
+//                usuario_aux!!.addFavorito(key_atividade)
+
+//                usuario_database!!.child(usuario_logado.email).setValue(usuario_aux)
+//                dataSnapshot.child(usuario_logado.email).setValue(usuario_aux::class.java)
+            }
+        })
+    }
+
+    private fun buscarAtividade(atividade: Atividade): String{
+        var atividade_database : DatabaseReference? = database!!.getReference("Atividades")
+
+        atividade_database?.addValueEventListener(object : ValueEventListener{
+            override fun onCancelled(p0: DatabaseError) {
+                TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+            }
+
+            override fun onDataChange(p0: DataSnapshot) {
+                if (p0!!.exists()) {
+                    for (e in p0.children) {
+                        val atividade_aux = e.getValue(Atividade::class.java)
+
+                        TODO("Implementar a pesquisa da atividade no banco de dados e retornar o ID")
+                    }
+                }
+            }
+        })
+
+        return ""
     }
 }

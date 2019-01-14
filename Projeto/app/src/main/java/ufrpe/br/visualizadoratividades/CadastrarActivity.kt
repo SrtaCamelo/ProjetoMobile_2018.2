@@ -90,7 +90,8 @@ class CadastrarActivity : AppCompatActivity() {
     }
 
     private fun verificarDados(usuario: Usuario): Boolean {
-        if(usuario.nome.isBlank() || usuario.campus.isBlank() || usuario.curso.isBlank() || usuario.email.isBlank() || usuario.senha.isBlank()){
+        if(usuario.nome.isBlank() || usuario.campus.isBlank() || usuario.curso.isBlank()
+                || usuario.email.isBlank() || usuario.senha.isBlank()){
             return false
         }
 

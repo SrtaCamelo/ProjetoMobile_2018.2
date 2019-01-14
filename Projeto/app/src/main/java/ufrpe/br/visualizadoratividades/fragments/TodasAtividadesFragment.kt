@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ListView
+import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
 import ufrpe.br.visualizadoratividades.R
@@ -29,11 +30,11 @@ class TodasAtividadesFragment : Fragment(){
         atividades_database.addValueEventListener(object : ValueEventListener{
             override fun onCancelled(p0: DatabaseError) {
                 TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
-            }
+        }
 
             override fun onDataChange(p0: DataSnapshot) {
-                if (p0!!.exists()){
-                    for (e in p0.children){
+                if (p0!!.exists()) {
+                    for (e in p0.children) {
                         val atividade = e.getValue(Atividade::class.java)
                         atividade_list.add(atividade!!)
                     }
