@@ -25,15 +25,17 @@ class HomeFragment : Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
         // Inflate the layout for this fragment
-        var v : View = inflater.inflate(R.layout.fragment_listar_atividade, container, false)
-        var fragmentCursos = CursosFragment()
-        var fragmentEsportes = EsportesFragment()
-        var fragmentIdiomas = IdiomasFragment()
-        var fragmentOutras = OutrasFragment()
-        var fragmentTodas = TodasAtividadesFragment()
-        var adapter_var = ViewPagerAdapter(childFragmentManager)
-        var vp_listarAtividade : ViewPager = v.findViewById(R.id.viewpager_id)
-        var tb_listarAtividade : TabLayout = v.findViewById(R.id.tbAtividadeListar)
+        val v : View = inflater.inflate(R.layout.fragment_listar_atividade, container, false)
+
+        val fragmentCursos = CursosFragment()
+        val fragmentEsportes = EsportesFragment()
+        val fragmentIdiomas = IdiomasFragment()
+        val fragmentOutras = OutrasFragment()
+        val fragmentTodas = TodasAtividadesFragment()
+
+        val adapter_var = ViewPagerAdapter(childFragmentManager)
+        val vp_listarAtividade : ViewPager = v.findViewById(R.id.viewpager_id)
+        val tb_listarAtividade : TabLayout = v.findViewById(R.id.tbAtividadeListar)
 
 
         adapter_var.AddFragment(fragmentTodas, getString(R.string.todos))

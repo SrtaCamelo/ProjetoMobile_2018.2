@@ -6,13 +6,15 @@ import android.support.v4.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ListView
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.*
 
 import ufrpe.br.visualizadoratividades.R
-
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
+import ufrpe.br.visualizadoratividades.adapters.AtividadesAdapter
+import ufrpe.br.visualizadoratividades.adapters.FavoritoAdapter
+import ufrpe.br.visualizadoratividades.beans.Atividade
+import ufrpe.br.visualizadoratividades.beans.Usuario
 
 /**
  * A simple [Fragment] subclass.
@@ -20,11 +22,64 @@ private const val ARG_PARAM2 = "param2"
  */
 class FavoritosFragment : Fragment() {
 
+    private var database : FirebaseDatabase? = FirebaseDatabase.getInstance()
+    private var atividades_database : DatabaseReference? = database!!.getReference("Atividades")
+    private var usuario_database : DatabaseReference? = database!!.getReference("Usuarios")
+    private var favoritosIds : ArrayList<String> = ArrayList()
+
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_favoritos, container, false)
+        val view : View = inflater.inflate(R.layout.fragment_favoritos, container, false)
+
+        val atividade_list = ArrayList<Atividade>()
+
+        val listview: ListView = view.findViewById(R.id.listFavoritos)
+
+        getFavoritosUsuario()
+
+        atividades_database!!.addValueEventListener(object : ValueEventListener {
+            override fun onCancelled(p0: DatabaseError) {
+                TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+            }
+
+            override fun onDataChange(p0: DataSnapshot) {
+                if (p0!!.exists()) {
+                    for (e in p0.children) {
+                        val atividade = e.getValue(Atividade::class.java)
+
+                        if (favoritosIds.contains(atividade!!.id)) {
+                            atividade_list.add(atividade!!)
+                        }
+                    }
+
+                    val adapter = FavoritoAdapter(activity, atividade_list)
+                    listview.adapter = adapter
+                }
+            }
+        })
+
+        return view
     }
 
+    private fun getFavoritosUsuario(){
+        val mAuth: FirebaseAuth? = FirebaseAuth.getInstance()
+        val usuario = mAuth!!.currentUser
+        var email = usuario!!.email.toString()
+        email = email.replace(".", ",")
+
+        usuario_database?.addValueEventListener(object : ValueEventListener{
+            override fun onCancelled(p0: DatabaseError) {
+                TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+            }
+
+            override fun onDataChange(dataSnapshot: DataSnapshot) {
+                if(dataSnapshot.child(email).exists()){
+                    var usuario_aux = dataSnapshot.child(email).getValue(Usuario::class.java) as Usuario
+
+                    favoritosIds = usuario_aux.getFavorito()
+                }
+            }
+        })
+    }
 
 }

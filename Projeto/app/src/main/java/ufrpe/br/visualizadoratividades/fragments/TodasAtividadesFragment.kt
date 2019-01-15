@@ -22,18 +22,19 @@ class TodasAtividadesFragment : Fragment(){
         database = FirebaseDatabase.getInstance()
         atividades_database = database.getReference("Atividades")
 
-        var atividade_list = ArrayList<Atividade>()
+        val atividade_list = ArrayList<Atividade>()
 
-        var view : View = inflater.inflate(R.layout.fragment_todas_atividades, container, false)
-        var listview: ListView = view.findViewById(R.id.listTodas)
+        val view : View = inflater.inflate(R.layout.fragment_todas_atividades, container, false)
+        val listview: ListView = view.findViewById(R.id.listTodas)
 
         atividades_database.addValueEventListener(object : ValueEventListener{
             override fun onCancelled(p0: DatabaseError) {
                 TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
-        }
+            }
 
             override fun onDataChange(p0: DataSnapshot) {
                 if (p0!!.exists()) {
+                    atividade_list.clear()
                     for (e in p0.children) {
                         val atividade = e.getValue(Atividade::class.java)
                         atividade_list.add(atividade!!)

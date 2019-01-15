@@ -43,4 +43,7 @@
     <string name="minhas_atividades">Minhas Atividades</string>
     <string name="editar">Editar</string>
     <string name="excluir">Excluir</string>
+    <string name="favoritos_sucesso">Atividade adicionada aos favoritos com sucesso</string>
+    <string name="favorito_ja_existe">Não possível favoritar, o item já consta em sua lista de favoritos.</string>
+    <string name="desfavoritar">Desfavoritar</string>
 </resources>

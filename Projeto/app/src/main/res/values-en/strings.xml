@@ -43,4 +43,7 @@
     <string name="minhas_atividades">My Activities</string>
     <string name="editar">edit</string>
     <string name="excluir">delete</string>
+    <string name="favoritos_sucesso">Activity successfully added to favorites</string>
+    <string name="favorito_ja_existe">Unable to bookmark, item is already in your favorites list.</string>
+    <string name="desfavoritar">Disfavor</string>
 </resources>

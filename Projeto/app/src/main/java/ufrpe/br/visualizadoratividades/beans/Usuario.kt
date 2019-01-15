@@ -1,6 +1,7 @@
 package ufrpe.br.visualizadoratividades.beans
 
 import java.util.*
+import kotlin.collections.ArrayList
 
 class Usuario {
     var nome : String = ""
@@ -44,5 +45,9 @@ class Usuario {
 
     fun removeFavorito(atividade: String){
         favoritos.remove(atividade)
+    }
+
+    fun getFavorito() : ArrayList<String>{
+        return favoritos
     }
 }
