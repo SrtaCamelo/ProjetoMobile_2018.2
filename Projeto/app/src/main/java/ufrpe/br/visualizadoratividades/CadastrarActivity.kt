@@ -16,7 +16,7 @@ import ufrpe.br.visualizadoratividades.beans.Usuario
 
 class CadastrarActivity : AppCompatActivity() {
 
-    val cursos = arrayOf("...")
+    val cursos = arrayOf("Agronomia", "Administração", "Ciência da Computação", "Ciências Biológicas", "Ciências Sociais", "Ciência do Consumo", "Engenharia Agrícola", "Engenharia Florestal", "Engenharia Civil", "Engenharia de Pesca", "Engenharia Mecânica", "Engenharia Elétrica", "Engenharia Química", "Educação Física", "Letras", "Licenciatura em Computação", "Filosofia", "Física", "Gastronomia", "Matemática", "Medicina Veterinária", "Psicologia", "Química", "Sistemas da Informação", "Zootecnia")
     val campus = arrayOf("Sede","UACSA", "UAST")
     var database : FirebaseDatabase? = null
     var usuarios : DatabaseReference? = null
@@ -31,6 +31,8 @@ class CadastrarActivity : AppCompatActivity() {
         usuarios = database!!.getReference("Usuarios")
         mAuth = FirebaseAuth.getInstance()
         mAuthListener = FirebaseAuth.AuthStateListener {  }
+
+        cursos.sort()
 
         val adapter1 = ArrayAdapter(this, R.layout.support_simple_spinner_dropdown_item, cursos)
         cursoSpinner.adapter = adapter1

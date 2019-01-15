@@ -26,7 +26,7 @@ class SplashScreenActivity : AppCompatActivity() {
 
         Handler().postDelayed({
             checkLogin(preferences!!.getString("email", ""), preferences!!.getString("senha", ""))
-        }, 5000)
+        }, 2000)
     }
 
     private fun checkLogin(email: String?, senha: String?){

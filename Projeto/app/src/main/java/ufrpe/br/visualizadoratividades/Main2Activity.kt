@@ -62,7 +62,6 @@ class Main2Activity : AppCompatActivity() {
     }
 
     fun gotoCadastrar(view: View){
-        Toast.makeText(applicationContext, "clicado", Toast.LENGTH_SHORT).show()
         val intent = Intent(applicationContext, CadastrarAtividadeActivity::class.java)
         startActivity(intent)
     }

@@ -25,33 +25,25 @@
         android:layout_marginTop="6dp"
         android:text="@string/horario" />
 
-    <Button
-        android:id="@+id/btDetalhes"
-        style="@style/Widget.MaterialComponents.Button.TextButton"
-        android:layout_width="56dp"
-        android:layout_height="25dp"
-        android:layout_alignParentTop="true"
-        android:layout_marginStart="138dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
-        android:layout_toEndOf="@+id/dHorario"
-        android:onClick="detalhes"
-        android:text="@string/detalhes"
-        android:textAlignment="center"
-        android:textSize="10sp" />
-
-    <Button
-        android:id="@+id/btDesFavoritar"
-        style="@style/Widget.MaterialComponents.Button.TextButton"
-        android:layout_width="65dp"
-        android:layout_height="25dp"
+    <ImageButton
+        android:id="@+id/btFavoritar"
+        android:layout_width="60dp"
+        android:layout_height="52dp"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
-        android:layout_marginStart="11dp"
-        android:layout_marginTop="17dp"
-        android:layout_marginEnd="25dp"
-        android:layout_toEndOf="@+id/btDetalhes"
-        android:text="@string/desfavoritar"
-        android:textSize="10sp" />
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="4dp"
+        app:srcCompat="@mipmap/ic_favorite" />
+
+    <ImageButton
+        android:id="@+id/detalhesButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="75dp"
+        android:onClick="detalhes"
+        app:srcCompat="@android:drawable/ic_menu_info_details" />
 
 </RelativeLayout>

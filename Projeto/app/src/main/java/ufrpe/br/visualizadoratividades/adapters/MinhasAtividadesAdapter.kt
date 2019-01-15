@@ -70,12 +70,17 @@ class MinhasAtividadesAdapter (private var activity: Activity?,
 
     private fun showDetalhes(parent: ViewGroup, atividade: Atividade) {
         var detalhesPopup = AlertDialog.Builder(parent.context)
+        var inflater = LayoutInflater.from(parent.context)
 
-        val nomeTV = parent.findViewById<TextView>(R.id.dTitulo)
-        val localTV = parent.findViewById<TextView>(R.id.dLocal)
-        val horarioTV = parent.findViewById<TextView>(R.id.dHorario)
-        val diaTV = parent.findViewById<TextView>(R.id.dDia)
-        val descricaoTV = parent.findViewById<TextView>(R.id.dDescricao)
+        var view = inflater.inflate(R.layout.fragment_detalhes_atividade, parent, false)
+
+        detalhesPopup.setView(view)
+
+        val nomeTV = view.findViewById<TextView>(R.id.dTitulo)
+        val localTV = view.findViewById<TextView>(R.id.dLocal)
+        val horarioTV = view.findViewById<TextView>(R.id.dHorario)
+        val diaTV = view.findViewById<TextView>(R.id.dDia)
+        val descricaoTV = view.findViewById<TextView>(R.id.dDescricao)
 
         nomeTV.setText(atividade.titulo)
         localTV.setText(atividade.local)
@@ -83,7 +88,6 @@ class MinhasAtividadesAdapter (private var activity: Activity?,
         diaTV.setText(atividade.dia)
         descricaoTV.setText(atividade.descricao)
 
-        detalhesPopup.setView(R.layout.fragment_detalhes_atividade)
         detalhesPopup.show()
 
     }

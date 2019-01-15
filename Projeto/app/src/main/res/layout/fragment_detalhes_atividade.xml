@@ -13,8 +13,10 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
         android:paddingTop="6dp"
         android:text="@string/nome"
+        android:textSize="24sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -22,16 +24,18 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="?attr/colorButtonNormal"
         android:orientation="horizontal">
 
         <TextView
             android:id="@+id/dHorario"
-            android:layout_width="96dp"
+            android:layout_width="74dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
             android:text="@string/horario"
-            android:textSize="12sp"
+            android:textSize="18sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tvTitulo" />
 
@@ -43,16 +47,20 @@
             android:layout_marginTop="5dp"
             android:layout_weight="1"
             android:text="Dia"
-            android:textSize="12sp" />
+            android:textAlignment="center"
+            android:textSize="18sp" />
 
         <TextView
             android:id="@+id/dLocal"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
             android:layout_marginTop="5dp"
+            android:layout_marginEnd="16dp"
             android:layout_weight="1"
             android:text="Local"
-            android:textSize="12sp" />
+            android:textAlignment="textEnd"
+            android:textSize="18sp" />
 
     </LinearLayout>
 
@@ -64,7 +72,7 @@
         android:layout_marginTop="5dp"
         android:paddingBottom="6dp"
         android:text="@string/descricao"
-        android:textSize="12sp"
+        android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/dHorario" />
 

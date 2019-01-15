@@ -1,13 +1,12 @@
 package ufrpe.br.visualizadoratividades.adapters
 
 import android.app.Activity
+import android.app.AlertDialog
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.BaseAdapter
-import android.widget.Button
-import android.widget.TextView
+import android.widget.*
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
 import ufrpe.br.visualizadoratividades.beans.Atividade
@@ -22,12 +21,14 @@ class AtividadesAdapter (private var activity: Activity?,
     private class ViewHolder(row: View?) {
         var tvTitulo: TextView? = null
         var tvHorario: TextView? = null
-        var btFavorito: Button? = null
+        var btFavorito: ImageButton? = null
+        var btDetalhes: ImageButton? = null
 
         init {
             this.tvTitulo = row?.findViewById(R.id.tvTitulo)
             this.tvHorario = row?.findViewById(R.id.dHorario)
             this.btFavorito = row?.findViewById(R.id.btFavoritar)
+            this.btDetalhes = row?.findViewById(R.id.detalhesButton)
         }
     }
 
@@ -53,7 +54,13 @@ class AtividadesAdapter (private var activity: Activity?,
 
         viewHolder.btFavorito?.setOnClickListener(object : View.OnClickListener{
             override fun onClick(v: View?) {
-                favoritar(atividadeDto)
+                favoritar(atividadeDto, parent)
+            }
+        })
+
+        viewHolder.btDetalhes?.setOnClickListener(object : View.OnClickListener{
+            override fun onClick(v: View?) {
+                showDetalhes(parent, atividadeDto)
             }
         })
 
@@ -72,7 +79,7 @@ class AtividadesAdapter (private var activity: Activity?,
         return items.size
     }
 
-    private fun favoritar(atividade : Atividade){
+    private fun favoritar(atividade : Atividade, parent: ViewGroup){
         val usuario_database : DatabaseReference? = database!!.getReference("Usuarios")
         val usuario = mAuth!!.currentUser
         var email = usuario!!.email.toString()
@@ -93,13 +100,37 @@ class AtividadesAdapter (private var activity: Activity?,
 
                         usuario_database!!.child(email).setValue(usuario_aux)
 
-//                        Toast.makeText(this@AtividadesAdapter, R.string.favoritos_sucesso, Toast.LENGTH_SHORT).show()
+                        Toast.makeText(parent.context, R.string.favoritos_sucesso, Toast.LENGTH_SHORT).show()
                     }else{
 //                        Toast.makeText(this@AtividadesAdapter, R.string.favorito_ja_existe, Toast.LENGTH_SHORT).show()
                     }
                 }
             }
         })
+    }
+
+    private fun showDetalhes(parent: ViewGroup, atividade: Atividade) {
+        var detalhesPopup = AlertDialog.Builder(parent.context)
+        var inflater = LayoutInflater.from(parent.context)
+
+        var view = inflater.inflate(R.layout.fragment_detalhes_atividade, parent, false)
+
+        detalhesPopup.setView(view)
+
+        val nomeTV = view.findViewById<TextView>(R.id.dTitulo)
+        val localTV = view.findViewById<TextView>(R.id.dLocal)
+        val horarioTV = view.findViewById<TextView>(R.id.dHorario)
+        val diaTV = view.findViewById<TextView>(R.id.dDia)
+        val descricaoTV = view.findViewById<TextView>(R.id.dDescricao)
+
+        nomeTV.setText(atividade.titulo)
+        localTV.setText(atividade.local)
+        horarioTV.setText(atividade.horario)
+        diaTV.setText(atividade.dia)
+        descricaoTV.setText(atividade.descricao)
+
+        detalhesPopup.show()
+
     }
 
 }
