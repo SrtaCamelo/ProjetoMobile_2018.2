@@ -34,7 +34,7 @@
         android:layout_marginStart="138dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
-        android:layout_toEndOf="@+id/tvHorario"
+        android:layout_toEndOf="@+id/dHorario"
         android:onClick="detalhes"
         android:text="@string/detalhes"
         android:textAlignment="center"

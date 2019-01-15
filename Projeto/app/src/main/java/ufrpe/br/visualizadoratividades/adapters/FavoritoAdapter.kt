@@ -28,7 +28,7 @@ class FavoritoAdapter (private var activity: Activity?,
 
         init {
             this.tvTitulo = row?.findViewById(R.id.tvTitulo)
-            this.tvHorario = row?.findViewById(R.id.tvHorario)
+            this.tvHorario = row?.findViewById(R.id.dHorario)
             this.btDesFavorito = row?.findViewById(R.id.btDesFavoritar)
         }
     }
