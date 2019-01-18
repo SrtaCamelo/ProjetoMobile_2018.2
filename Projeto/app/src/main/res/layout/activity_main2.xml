@@ -1,56 +1,59 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    app:menu="@menu/logout_menu"
     tools:context=".Main2Activity">
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/consLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <android.support.design.widget.BottomNavigationView
+            android:id="@+id/main_nav"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_alignParentEnd="true"
+            android:background="@color/colorPrimary"
+            app:itemBackground="@color/colorPrimary"
+            app:itemIconTint="@color/nav_items_menu_colors"
+            app:itemTextColor="@color/nav_items_menu_colors"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:menu="@menu/nav_items_menu_main2" />
+
+        <FrameLayout
+            android:id="@+id/main_frame"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:onClick="gotoCadastrar"
+            app:layout_constraintBottom_toTopOf="@+id/main_nav"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+        </FrameLayout>
+
+    </android.support.constraint.ConstraintLayout>
 
     <com.getbase.floatingactionbutton.FloatingActionButton
         android:id="@+id/fab"
         android:layout_width="85dp"
         android:layout_height="84dp"
+        android:layout_above="@id/consLayout"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="4dp"
+        android:layout_gravity="top"
+        android:layout_marginEnd="12dp"
+        android:layout_marginBottom="65dp"
         android:onClick="gotoCadastrar"
-        app:fab_colorNormal="@color/colorPrimary"
-        app:fab_colorPressed="@color/colorPrimary"
-        app:fab_icon="@mipmap/ic_add"
-        app:layout_constraintBottom_toTopOf="@+id/main_nav"
-        app:layout_constraintEnd_toEndOf="@+id/main_frame" />
+        app:fab_colorNormal="@android:color/holo_blue_dark"
+        app:fab_colorPressed="@color/colorAccent"
+        app:fab_icon="@mipmap/ic_add" />
 
-    <android.support.design.widget.BottomNavigationView
-        android:id="@+id/main_nav"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
-        android:background="@color/colorPrimary"
-        app:itemBackground="@color/colorPrimary"
-        app:itemIconTint="@color/nav_items_menu_colors"
-        app:itemTextColor="@color/nav_items_menu_colors"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.454"
-        app:layout_constraintStart_toStartOf="parent"
-        app:menu="@menu/nav_items_menu_main2" />
 
-    <FrameLayout
-        android:id="@+id/main_frame"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"
-        android:onClick="gotoCadastrar"
-        app:layout_constraintBottom_toTopOf="@+id/main_nav"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-    </FrameLayout>
-
-</android.support.constraint.ConstraintLayout>
+</RelativeLayout>

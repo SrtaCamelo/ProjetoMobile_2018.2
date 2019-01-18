@@ -2,10 +2,7 @@ package ufrpe.br.visualizadoratividades
 
 
 import android.app.TimePickerDialog
-import android.content.Intent
 import android.os.Bundle
-import android.os.PersistableBundle
-import android.support.v4.app.DialogFragment
 import android.support.v7.app.AppCompatActivity
 import android.view.View
 import android.widget.ArrayAdapter
@@ -13,10 +10,8 @@ import android.widget.TimePicker
 import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
-import kotlinx.android.synthetic.main.activity_cadastrar.*
 import kotlinx.android.synthetic.main.fragment_cadastrar_atividade.*
 import ufrpe.br.visualizadoratividades.beans.Atividade
-import ufrpe.br.visualizadoratividades.beans.Usuario
 import ufrpe.br.visualizadoratividades.fragments.TimePickerFragment
 import java.util.*
 
@@ -50,9 +45,12 @@ class CadastrarAtividadeActivity : AppCompatActivity(), TimePickerDialog.OnTimeS
 
     fun cadastrar(view : View){
         var usuario = mAuth!!.currentUser
-
-        var atividade = Atividade(tituloEdit.text.toString(), descricaoET.text.toString(), horaButton.text.toString(), localEdit.text.toString(), tipoSpinner.selectedItem.toString(), diaSpinner.selectedItem.toString(), usuario!!.email.toString())
         val uuid = UUID.randomUUID()
+
+        var atividade = Atividade(tituloEdit.text.toString(), descricaoET.text.toString(),
+                horaButton.text.toString(), localEdit.text.toString(), tipoSpinner.selectedItem.toString(),
+                diaSpinner.selectedItem.toString(), usuario!!.email.toString(), uuid.toString())
+
 
         usuarios!!.addListenerForSingleValueEvent(object : ValueEventListener {
             override fun onCancelled(p0: DatabaseError) {
@@ -61,6 +59,7 @@ class CadastrarAtividadeActivity : AppCompatActivity(), TimePickerDialog.OnTimeS
 
             override fun onDataChange(dataSnapshot: DataSnapshot) {
                 if (verificarDados(atividade)){
+
                     usuarios!!.child(uuid.toString()).setValue(atividade)
                     Toast.makeText(applicationContext, R.string.registro_sucesso, Toast.LENGTH_SHORT).show()
                     finish()

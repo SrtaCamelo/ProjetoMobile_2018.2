@@ -10,4 +10,8 @@
         android:id="@+id/nav_favoritos"
         android:icon="@mipmap/ic_favorite"
         android:title="@string/tvFavoritos" />
+    <item
+        android:id="@+id/nav_minhas_atividades"
+        android:icon="@mipmap/ic_activity"
+        android:title="@string/minhas_atividades" />
 </menu>
