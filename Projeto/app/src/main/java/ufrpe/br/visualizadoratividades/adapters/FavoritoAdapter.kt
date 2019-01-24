@@ -40,6 +40,8 @@ class FavoritoAdapter (private var activity: Activity?,
         if (convertView == null) {
             val inflater = activity?.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
             view = inflater.inflate(R.layout.favorito_list_row, null)
+            var imageView = view.findViewById<View>(R.id.btFavoritar) as ImageView
+            imageView.setImageResource(R.mipmap.ic_favorited)
             viewHolder = FavoritoAdapter.ViewHolder(view)
             view?.tag = viewHolder
         } else {
@@ -74,7 +76,7 @@ class FavoritoAdapter (private var activity: Activity?,
         email = email.replace(".", ",")
 
 
-        usuario_database?.addValueEventListener(object : ValueEventListener {
+        usuario_database?.addListenerForSingleValueEvent(object : ValueEventListener {
             override fun onCancelled(p0: DatabaseError) {
                 TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
             }
@@ -87,7 +89,6 @@ class FavoritoAdapter (private var activity: Activity?,
                         usuario_aux!!.removeFavorito(atividade.id)
 
                         usuario_database!!.child(email).setValue(usuario_aux)
-                        notifyDataSetChanged()
 //                        Toast.makeText(this@AtividadesAdapter, R.string.favoritos_sucesso, Toast.LENGTH_SHORT).show()
                     }else{
 //                        Toast.makeText(this@AtividadesAdapter, R.string.favorito_ja_existe, Toast.LENGTH_SHORT).show()

@@ -56,6 +56,7 @@ class MinhasAtividadesAdapter (private var activity: Activity?,
         viewHolder.btExcluir?.setOnClickListener(object : View.OnClickListener{
             override fun onClick(v: View?) {
                 excluir(atividadeDto)
+                notifyDataSetChanged()
             }
         })
 

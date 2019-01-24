@@ -39,8 +39,28 @@ class AtividadesAdapter (private var activity: Activity?,
         val view: View?
         val viewHolder: ViewHolder
         if (convertView == null) {
+
             val inflater = activity?.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
             view = inflater.inflate(R.layout.atividade_list_row, null)
+            val usuario_database : DatabaseReference? = database!!.getReference("Usuarios")
+            val usuario = mAuth!!.currentUser
+            var email = usuario!!.email.toString()
+            email = email.replace(".", ",")
+            usuario_database?.addValueEventListener(object : ValueEventListener{
+                override fun onCancelled(p0: DatabaseError) {
+                    TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+                }
+
+                override fun onDataChange(dataSnapshot: DataSnapshot) {
+                    if(dataSnapshot.child(email).exists()){
+                        var usuario_aux = dataSnapshot.child(email).getValue(Usuario::class.java) as Usuario
+                        if(usuario_aux.getFavorito().contains(getItem(position).id)){
+                            var imageView = view.findViewById<View>(R.id.btFavoritar) as ImageView
+                            imageView.setImageResource(R.mipmap.ic_favorited)
+                        }
+                    }
+                }
+            })
             viewHolder = ViewHolder(view)
             view?.tag = viewHolder
         } else {
@@ -55,6 +75,7 @@ class AtividadesAdapter (private var activity: Activity?,
         viewHolder.btFavorito?.setOnClickListener(object : View.OnClickListener{
             override fun onClick(v: View?) {
                 favoritar(atividadeDto, parent)
+                notifyDataSetChanged()
             }
         })
 
@@ -79,6 +100,7 @@ class AtividadesAdapter (private var activity: Activity?,
         return items.size
     }
 
+
     private fun favoritar(atividade : Atividade, parent: ViewGroup){
         val usuario_database : DatabaseReference? = database!!.getReference("Usuarios")
         val usuario = mAuth!!.currentUser
@@ -86,7 +108,7 @@ class AtividadesAdapter (private var activity: Activity?,
         email = email.replace(".", ",")
 
 
-        usuario_database?.addValueEventListener(object : ValueEventListener{
+        usuario_database?.addListenerForSingleValueEvent(object : ValueEventListener{
             override fun onCancelled(p0: DatabaseError) {
                 TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
             }
@@ -101,8 +123,13 @@ class AtividadesAdapter (private var activity: Activity?,
                         usuario_database!!.child(email).setValue(usuario_aux)
 
                         Toast.makeText(parent.context, R.string.favoritos_sucesso, Toast.LENGTH_SHORT).show()
-                    }else{
-//                        Toast.makeText(this@AtividadesAdapter, R.string.favorito_ja_existe, Toast.LENGTH_SHORT).show()
+
+                    }else if(usuario_aux.getFavorito().contains(atividade.id)){
+                        usuario_aux!!.removeFavorito(atividade.id)
+                        usuario_database!!.child(email).setValue(usuario_aux)
+                    }
+                    else{
+//                       Toast.makeText(parent.context, R.string.favorito_ja_existe, Toast.LENGTH_SHORT).show()
                     }
                 }
             }

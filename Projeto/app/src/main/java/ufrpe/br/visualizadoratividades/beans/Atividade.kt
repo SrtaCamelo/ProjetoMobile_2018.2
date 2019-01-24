@@ -1,6 +1,8 @@
 package ufrpe.br.visualizadoratividades.beans
 
-class Atividade {
+import java.time.LocalDateTime
+
+class Atividade{
     var titulo : String = ""
     var descricao : String = ""
     var local : String = ""
@@ -9,6 +11,7 @@ class Atividade {
     var tipo : String = ""
     var autor : String = ""
     var id : String = ""
+    var dataCadastro : String = ""
 
     constructor() {}
 
@@ -18,6 +21,9 @@ class Atividade {
         this.horario = horario
         this.local = local
         this.tipo = ""
+        this.dataCadastro = LocalDateTime.now().toString()
+
+
     }
 
     constructor(titulo : String, descricao : String, horario : String, local : String,
@@ -30,6 +36,7 @@ class Atividade {
         this.dia = dia
         this.autor = autor
         this.id = id
+        this.dataCadastro = LocalDateTime.now().toString()
     }
 
 }

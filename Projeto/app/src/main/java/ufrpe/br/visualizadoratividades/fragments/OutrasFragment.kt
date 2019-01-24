@@ -10,6 +10,7 @@ import com.google.firebase.database.*
 import ufrpe.br.visualizadoratividades.R
 import ufrpe.br.visualizadoratividades.adapters.AtividadesAdapter
 import ufrpe.br.visualizadoratividades.beans.Atividade
+import java.util.*
 
 class OutrasFragment : Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -37,6 +38,11 @@ class OutrasFragment : Fragment() {
                             atividade_list.add(atividade!!)
                         }
                     }
+                    Collections.sort(atividade_list, object : Comparator<Atividade> {
+                        override fun compare(o1: Atividade, o2: Atividade): Int {
+                            return o1.dataCadastro.compareTo(o2.dataCadastro)
+                        }
+                    })
 
                     val adapter = AtividadesAdapter(activity, atividade_list)
                     listview.adapter = adapter

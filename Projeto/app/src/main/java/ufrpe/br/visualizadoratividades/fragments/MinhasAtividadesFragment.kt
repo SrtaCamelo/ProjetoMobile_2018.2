@@ -45,7 +45,8 @@ class MinhasAtividadesFragment() : Fragment(){
                         }
                     }
 
-                    val adapter = MinhasAtividadesAdapter(activity, atividade_list)
+                    var adapter = MinhasAtividadesAdapter(activity, atividade_list)
+                    adapter.notifyDataSetChanged()
                     listview.adapter = adapter
                 }
             }

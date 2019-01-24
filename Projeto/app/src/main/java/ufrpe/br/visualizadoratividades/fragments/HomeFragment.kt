@@ -33,7 +33,7 @@ class HomeFragment : Fragment() {
         val fragmentOutras = OutrasFragment()
         val fragmentTodas = TodasAtividadesFragment()
 
-        val adapter_var = ViewPagerAdapter(childFragmentManager)
+        var adapter_var = ViewPagerAdapter(childFragmentManager)
         val vp_listarAtividade : ViewPager = v.findViewById(R.id.viewpager_id)
         val tb_listarAtividade : TabLayout = v.findViewById(R.id.tbAtividadeListar)
 
